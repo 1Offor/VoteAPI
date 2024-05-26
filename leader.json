@@ -1,0 +1,32 @@
+[
+    {
+        "totalVotes": 3,
+        "winner": {
+            "name": "APC",
+            "candidate": "Candidate A",
+            "votes": 2,
+            "percentage": "66.67%"
+        },
+        "leaderboard": [
+            {
+                "name": "APC",
+                "candidate": "Candidate A",
+                "votes": 2,
+                "percentage": "66.67%"
+            },
+            {
+                "name": "PDP",
+                "candidate": "Candidate B",
+                "votes": 1,
+                "percentage": "33.33%"
+            },
+            {
+                "name": "LP",
+                "candidate": "Candidate C",
+                "votes": 0,
+                "percentage": "0%"
+            }
+        ]
+    }
+    
+]
