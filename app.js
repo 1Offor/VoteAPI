@@ -87,7 +87,7 @@
 // });
 
 // app.listen(port, () => {
-//     console.log(`Voting app listening at http://localhost:${port}`);
+//     console.log(`}`);
 // });
 
 const express = require('express');
@@ -102,11 +102,11 @@ let parties = {
     LP: { name: 'LP', votes: 346055, candidate: 'Nwabuike' }
 };
 
-// 1. Create a party
-app.post('/parties', (req, res) => {
+// Create a party
+app.post ('/parties', (req, res) => {
     const { parties: name, Candidates: candidate } = req.body;
     if (!name || !candidate) {
-        return res.status(400).send({ message: 'Party name and candidate are required' });
+        return res.status(400).send({ message: 'Party name and party required' });
     }
     if (parties[name]) {
         return res.status(400).send({ message: 'Party already exists' });
@@ -115,12 +115,12 @@ app.post('/parties', (req, res) => {
     res.status(201).send({ message: 'Party created successfully', party: parties[name] });
 });
 
-// 2. Get all the parties
+//  Get all the parties
 app.get('/parties', (req, res) => {
     res.send(Object.values(parties));
 });
 
-// 3. Get a party by name
+//  Get a party by name
 app.get('/parties/:name', (req, res) => {
     const { name } = req.params;
     const party = parties[name];
@@ -130,7 +130,7 @@ app.get('/parties/:name', (req, res) => {
     res.send(party);
 });
 
-// 4. Vote (update vote count)
+//  Vote (update vote count)
 app.post('/parties/:name/vote', (req, res) => {
     const { name } = req.params;
     const party = parties[name];
@@ -141,7 +141,7 @@ app.post('/parties/:name/vote', (req, res) => {
     res.send({ message: 'Vote counted', party });
 });
 
-// 5. Delete a party
+//  Delete a party
 app.delete('/parties/:name', (req, res) => {
     const { name } = req.params;
     if (!parties[name]) {
@@ -151,7 +151,7 @@ app.delete('/parties/:name', (req, res) => {
     res.status(204).send();
 });
 
-// 6. Leaderboard with total votes, winner, and percentage
+//  Leaderboard with total votes, winner, and percentage
 app.get('/leaderboard', (req, res) => {
     const totalVotes = Object.values(parties).reduce((sum, party) => sum + party.votes, 0);
     const leaderboard = Object.values(parties)
@@ -173,6 +173,6 @@ app.get('/leaderboard', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Voting app listening at http://localhost:${port}`);
+    console.log(`I can only vote OfforChicobi`);
 });
 
